@@ -1,0 +1,7 @@
+feature 'Reduce_hp' do
+  scenario 'reduce hp player 2' do
+  	sign_in_and_play
+  	click_link 'Reduce_hp'
+  	expect(page).to have_content 'Player 2 reduces HP by 2'
+  end
+end
