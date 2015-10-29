@@ -9,6 +9,7 @@ feature 'hit_points' do
   end
   scenario 'reduce Player 1 HP by 10' do
     sign_in_and_play
+    allow(Kernel).to receive(:rand).and_return(10)
     attack_and_confirm
     attack_and_confirm
     expect(page).not_to have_content 'Dave: 60HP'
@@ -16,6 +17,7 @@ feature 'hit_points' do
   end
   scenario 'reduce Player 2 HP by 10' do
     sign_in_and_play
+    allow(Kernel).to receive(:rand).and_return(10)
     attack_and_confirm
     expect(page).not_to have_content 'Mittens: 60HP'
     expect(page).to have_content 'Mittens: 50HP'
