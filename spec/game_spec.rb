@@ -18,6 +18,12 @@ describe Game do
 	      expect(game.player2).to eq player2
 	    end
 	  end
+
+	  describe 'current_turn' do
+	  	it 'is player 1 turn on a new game' do
+	  	  expect(game.current_turn).to eq player1
+	  	end
+	  end
   end
 
   describe '#attack' do
@@ -26,5 +32,12 @@ describe Game do
       game.attack(player1)
     end
   end
+
+  describe '#switch turns' do
+  	it 'switches turns' do
+  	  game.switch_turns
+  	  expect(game.current_turn).to eq player2
+  	end
+  end	
 	
 end
