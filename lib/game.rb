@@ -33,6 +33,10 @@ class Game
     losing_players.any?
   end
 
+  def kick_attack(player)
+    player.receive_kick_damage
+  end
+
   private
   def opponent_of(player)
     @players.select { |current_player| current_player != player }.first

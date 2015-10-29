@@ -49,9 +49,22 @@ class Battle < Sinatra::Base
     erb (:game_over)
   end
 
-  post '/new_game' do
-    redirect '/'
+  post '/kick_attack' do
+    save_state
+    $game.kick_attack(@opponent)
+    if $game.game_over?
+      redirect '/game_over'
+    else
+      redirect '/kick_attack'
+    end
   end
+
+  get '/kick_attack' do
+    save_state
+    $game.switch_turns
+    erb :kick_attack
+  end
+
     # start the server if ruby file executed directly
   run! if app_file == $0
 end

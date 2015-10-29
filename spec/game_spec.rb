@@ -60,4 +60,11 @@ describe Game do
     end
   end
 
+    describe '#kick_attack' do
+    it 'kicks the player' do
+      expect(player1).to receive(:receive_kick_damage)
+      game.kick_attack(player1)
+    end
+  end
+
 end

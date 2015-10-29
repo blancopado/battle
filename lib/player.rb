@@ -7,8 +7,12 @@
     @hit_points = hit_points
   end
 
-  def receive_damage
+   def receive_damage
     @hit_points -= Kernel.rand(10)
+   end
+
+   def receive_kick_damage
+    @hit_points -= Kernel.rand(15)
    end
  end
 
