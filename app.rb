@@ -7,7 +7,14 @@ class Battle < Sinatra::Base
   get '/' do
     erb :index
   end
-  
+
+  def save_state
+    @player_1 = $game.player1
+    @player_2 = $game.player2
+    @current_turn = $game.current_turn
+    @opponent = $game.opponent
+  end
+
   post '/names' do
     player_1 = Player.new(params[:player_1_name])
     player_2 = Player.new(params[:player_2_name])
@@ -16,16 +23,14 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player_1 = $game.player1
-    @player_2 = $game.player2
+    save_state
     @current_turn = $game.current_turn
     erb :play
   end
 
   get '/attack' do
-    @player_1 = $game.player1
-    @player_2 = $game.player2
-    $game.attack(@player_2)
+    save_state
+    $game.attack(@opponent)
     $game.switch_turns
     erb :attack
   end
