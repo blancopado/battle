@@ -4,3 +4,5 @@ feature 'hit_points' do
     expect(page).to have_content 'Mittens: 60HP'
   end
 end
+
+
