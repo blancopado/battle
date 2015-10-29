@@ -4,3 +4,5 @@ gem 'sinatra'
 gem 'rspec-sinatra'
 gem 'capybara'
 gem 'shotgun'
+gem 'guard-rspec'
+
