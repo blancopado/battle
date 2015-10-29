@@ -45,5 +45,19 @@ describe Game do
       expect(game.current_turn).to eq player2
     end
   end
+  describe '#loser' do
+    it 'returns a loser if a player has zero hit points' do
+      allow(player1).to receive(:hit_points).and_return(0)
+      allow(player2).to receive(:hit_points).and_return(10)
+      expect(game.loser).to eq player1
+    end
+  end
+  describe '#game_over' do
+    it 'says game over if a player has no hit points' do
+      allow(player1).to receive(:hit_points).and_return(0)
+      allow(player2).to receive(:hit_points).and_return(10)
+      expect(game.game_over?).to be true
+    end
+  end
 
 end

@@ -25,8 +25,20 @@ class Game
     @opponent = opponent_of(@current_turn)
   end
 
+  def loser
+    losing_players.first
+  end
+
+  def game_over?
+    losing_players.any?
+  end
+
   private
   def opponent_of(player)
     @players.select { |current_player| current_player != player }.first
   end
+  def losing_players
+    @players.select {|player| player.hit_points <= 0 }
+  end
+
 end

@@ -3,7 +3,8 @@
 <%= @player_1.name %>: <%= @player_1.hit_points %>HP
 <%= @player_2.name %>: <%= @player_2.hit_points %>HP
 
-<a href="/attack">Attack</a>
-
+<form action="/attack" method="post" accept-charset="utf-8">
+  <p><input type="submit" value="Attack"></p>
+</form>
 <%= @current_turn.name %>'s turn
 
