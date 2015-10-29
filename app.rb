@@ -49,6 +49,9 @@ class Battle < Sinatra::Base
     erb (:game_over)
   end
 
-  # start the server if ruby file executed directly
+  post '/new_game' do
+    redirect '/'
+  end
+    # start the server if ruby file executed directly
   run! if app_file == $0
 end
